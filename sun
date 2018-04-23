@@ -1,0 +1,33 @@
+PVector[] clouds;
+
+void setup() {
+  size(1200, 800);
+  
+  clouds = new PVector[2];
+  
+}
+
+
+void draw() {
+  //sky
+  background(#2ECCFA);
+
+  //ground 
+  noStroke();
+  fill(#5FB404);
+  rect(0, height-300, width, 300);
+  
+  //sun
+  fill(#F7FE2E);
+  ellipse(100, 100, 100, 100);
+  triangle(100, 25, 85, 45, 115, 45);
+  triangle(100, 175, 85, 155, 115, 155);
+  triangle(25, 100, 45, 85, 45, 115);
+  triangle(175, 100, 155, 85, 155, 115);
+  triangle(127.5, 50, 150, 70, 155, 42);
+  triangle(127.5, 150, 150, 130, 155, 158);
+  triangle(50, 127.5, 70, 150, 42, 155);
+  triangle(50, 70, 70, 50, 42, 42);
+  
+ 
+ }
