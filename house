@@ -1,0 +1,55 @@
+PVector[] rain;
+
+void setup(){
+  size(600, 600);
+  rain = new PVector[100];
+  for (int i = 0; i < rain.length; i++) {
+    float x = random(0, width);
+    float y = random(0, 400);
+    rain[i] = new PVector(x, y);
+  }
+}
+
+void draw(){
+    background(#045FB4);
+    
+    //house
+    stroke(2);
+    fill(#FFFCFC);
+    rect(40, 225, 250, 175);
+    fill(#FF0303);
+    triangle(20, 225, 165, 150, 310, 225);
+    fill(#03E4FF);
+    rect(60, 300, 60, 60);
+    line(90, 300, 90, 360);
+    line(60, 330, 120, 330);
+    fill(#933236);
+    rect(200, 300, 60, 100);
+    fill(#030203);
+    ellipse(245, 350, 15, 15);
+    
+    //ground
+    noStroke();
+    fill(#5FB404);
+    rect(0, height-200, width, 300);
+    
+    //rain
+    for (int i = 0; i < rain.length; i++) {
+    // move each cloud
+    rain[i].add(1, 0);
+    
+    // reset if they go too far
+    if (rain[i].x - 75 > width) {
+      rain[i].x = -75;
+      rain[i].y = (int) random(50, 400);
+    }
+    
+    // draw each cloud
+    noStroke();
+    fill(255);
+    line(rain[i].x, rain[i].y, 70, 50);
+    line(rain[i].x+20, rain[i].y+15, 70, 50);
+    line(rain[i].x-20, rain[i].y+15, 70, 50);
+  }
+    
+}
